@@ -4,4 +4,7 @@
 * Logic 
 ** Do this first
 ** Make text based first
-
+*** Board should be split into 'squares'
+*** Each square is either marked as bomb or empty
+*** If the square is empty it should count the squares around it and if they're bombs it should increase a count
+*** How will this be structured in the code?
