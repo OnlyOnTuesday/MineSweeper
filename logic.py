@@ -11,12 +11,21 @@ class Empty:
     #counter variable, getNumberBombs
     def __init__(self):
         self = self
-        
-    def sayHi():
-        print("HI")
+        self.var = 1
 
+    #we never input this variable
+    def printVar(self):
+        print(self.var)
+
+        
+    #def countBombs(self, gameBoard = []):
+        #pseudo code
+        # for x in gameBoard:
+        #     if type is "bomb":
+        #         bombs = bombs + 1
+    #var for number of surrounding bombs, var to say we're not a bomb
 #class Bomb:
 
 if __name__ == "__main__":
-    x = Empty
-    x.sayHi()
+    x = Empty()
+    x.printVar()
