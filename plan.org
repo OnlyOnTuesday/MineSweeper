@@ -8,3 +8,5 @@
 *** Each square is either marked as bomb or empty
 *** If the square is empty it should count the squares around it and if they're bombs it should increase a count
 *** How will this be structured in the code?
+**** Use classes for each space (two classes)
+**** randomly choose 0 or 1 and assign bomb or empty to each space
