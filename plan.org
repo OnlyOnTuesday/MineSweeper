@@ -1,0 +1,7 @@
+* GUI
+** Can do this last
+
+* Logic 
+** Do this first
+** Make text based first
+
