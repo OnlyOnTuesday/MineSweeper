@@ -1,3 +1,4 @@
+import random
 import sys
 import pygame
 from pygame.locals import *
@@ -13,6 +14,9 @@ class Button:
         self.xPos = xPos
         self.yPos = yPos
         self.sideLength = sideLength
+
+    def setText(self, newText):
+        self.text = self.font.render(newText, True, textColor)
 
     def drawLight(self, surface, pos):
         pygame.draw.rect(surface, self.colorLight, pos)
@@ -70,7 +74,12 @@ side = 50
 #        and xStart += 60 for i in range(10)]
 OBJS = []
 for i in range(10):
-    OBJS.append(Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart, yStart, side))
+    #OBJS.append(Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart, yStart, side))
+    x = random.randrange(2)
+    if x > 0:
+        OBJS.append(Bomb(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart, yStart, side))
+    else:
+        OBJS.append(Empty(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart, yStart, side))
     xStart += 60
 
 while True:
@@ -90,8 +99,14 @@ while True:
         if i.getXPos() <= mouse[0] <= i.getXPos() + i.getSideLength()\
            and i.getYpos() <= mouse[1] <= i.getYpos() + i.getSideLength():
             i.drawDark(screen, [xStart, yStart, side, side])
+            for ev in pygame.event.get():
+                if ev.type == pygame.MOUSEBUTTONDOWN \
+                   and i.getType() == "bomb":
+                    print("BOOM")
+                    i.setText("BOOM")
         else:
-           i.drawLight(screen, [xStart, yStart, side, side])
+            
+            i.drawLight(screen, [xStart, yStart, side, side])
         xStart += 60
     xStart = 0
     #dis()
