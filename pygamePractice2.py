@@ -35,6 +35,15 @@ class Button:
     def getSideLength(self):
         return self.sideLength
 
+
+class Bomb(Button):
+    def getType(self):
+        return "bomb"
+
+class Empty(Button):
+    def getType(self):
+        return "empty"
+
 pygame.init()
 
 res = (720, 720)
@@ -71,8 +80,8 @@ while True:
 
         # if ev.type == pygame.MOUSEBUTTONDOWN:
         #     if width/2 <= mouse[0] <= width/2+50 and height/2 <= mouse[1] <= height/2+50:
-        #         pygame.quit(
-                )
+        #         pygame.quit()
+
 
     screen.fill((60,25,60))
     mouse = pygame.mouse.get_pos()
