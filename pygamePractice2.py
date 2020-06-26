@@ -45,9 +45,16 @@ side = 50
 
 #but = Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit")
 #but2 = Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Start")
-objs = [Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit")
+OBJS = [Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit")
         for i in range(10)]
 
+def dis():
+    xStart = 0
+    yStart = 0
+    for i in OBJS:
+        i.drawDark(screen, [xStart, yStart, side, side])
+        xStart += 60
+    
 
 while True:
     for ev in pygame.event.get():
@@ -71,18 +78,11 @@ while True:
     # else:
     #     but2.drawDark(screen, [width/3, height/2, 50, 50])
         
-
-    # for i in range(10):
-    #     for j in range(10):
-    #         #make separate objects
-    #         but.drawDark(screen, [xStart, yStart, side, side])
-    #         xStart += 60
-    #     yStart += 60
-
-    for i in objs:
-        #only draws while the for loop tells it to
+    for i in OBJS:
         i.drawDark(screen, [xStart, yStart, side, side])
         xStart += 60
+    xStart = 0
+    #dis()
 
     pygame.display.update()
                       
