@@ -72,6 +72,16 @@ side = 50
 #but2 = Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Start")
 #OBJS = [Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart)
 #        and xStart += 60 for i in range(10)]
+
+def clickedButton(mousePos):
+    for i in OBJS:
+        if i.getXPos() <= mouse[0] <= i.getXPos() + i.getSideLength()\
+           and i.getYpos() <= mouse[1] <= i.getYpos() + i.getSideLength():
+            return i
+
+    return None
+
+
 OBJS = []
 for i in range(10):
     #OBJS.append(Button(textColor, colorLightButton, colorDarkButton, "Corbel", "Quit", xStart, yStart, side))
@@ -83,27 +93,39 @@ for i in range(10):
     xStart += 60
 
 while True:
+
+    screen.fill((60,25,60))
+    mouse = pygame.mouse.get_pos()
+
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
             pygame.quit()
 
+        if ev.type == pygame.MOUSEBUTTONDOWN:
+            button = clickedButton(mouse);
+            if button is not None:
+                print(button.getType())
         # if ev.type == pygame.MOUSEBUTTONDOWN:
         #     if width/2 <= mouse[0] <= width/2+50 and height/2 <= mouse[1] <= height/2+50:
         #         pygame.quit()
 
 
-    screen.fill((60,25,60))
-    mouse = pygame.mouse.get_pos()
+
+    
 
     for i in OBJS:
         if i.getXPos() <= mouse[0] <= i.getXPos() + i.getSideLength()\
            and i.getYpos() <= mouse[1] <= i.getYpos() + i.getSideLength():
             i.drawDark(screen, [xStart, yStart, side, side])
-            for ev in pygame.event.get():
-                if ev.type == pygame.MOUSEBUTTONDOWN \
-                   and i.getType() == "bomb":
-                    print("BOOM")
-                    i.setText("BOOM")
+           #  # for ev in pygame.event.get():
+           #  #     # if ev.type == pygame.MOUSEBUTTONDOWN \
+           #  #     #    and i.getType() == "bomb":
+           #  #     #     print("BOOM")
+           #  #     #     i.setText("BOOM")
+           #  #     if ev.type == pygame.MOUSEBUTTONDOWN:
+           #  #         print(i.getType())
+            
+
         else:
             
             i.drawLight(screen, [xStart, yStart, side, side])
@@ -114,14 +136,11 @@ while True:
     pygame.display.update()
     
 
-    # if width/2 <= mouse[0] <= width/2+50 and height/2 <= mouse[1] <= height/2+50:
-    #     but.drawLight(screen, [width/2, height/2, 50, 50])
-    # else:
-    #     but.drawDark(screen, [width/2, height/2, 50, 50])
 
-    # if width/3 < mouse[0] <= width/3+50 and height/2 <= mouse[1] <= height/2+50:
-    #     but2.drawLight(screen, [width/3, height/2, 50, 50])
-    # else:
-    #     but2.drawDark(screen, [width/3, height/2, 50, 50])
-        
-                      
+##
+# How to check if hitting button
+# Write a function that checks if mouseclick is over button, and then return a
+# button if true. return null if otherwise
+#
+# check that the button is not null and perform an action on the returned object
+##
