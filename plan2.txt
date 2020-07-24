@@ -1,0 +1,24 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+Work during meetings
+
+classes for bombs and buttons
+
+list of buttons
+
+Big things in MS:
+how many bombs surround each space
+randomize bombs on the board
+	  if hit bomb, show other bombs
+put flags down to mark potential bombs
+    right click
+
+
+Bombs:
+	if hit bombs: show all bombs
+
+Non bomb:
+	show count of all bombs nearby
+	if no bombs near, show all other empty spots
+	
