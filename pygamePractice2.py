@@ -48,7 +48,7 @@ class Empty(Button):
     def getType(self):
         return "empty"
 
-npygame.init()
+pygame.init()
 
 res = (720, 720)
 screen = pygame.display.set_mode(res)
@@ -97,7 +97,7 @@ while True:
 
     for i in OBJS:
         if i.getXPos() <= mouse[0] <= i.getXPos() + i.getSideLength()\
-k           and i.getYpos() <= mouse[1] <= i.getYpos() + i.getSideLength():
+           and i.getYpos() <= mouse[1] <= i.getYpos() + i.getSideLength():
             i.drawDark(screen, [xStart, yStart, side, side])
             for ev in pygame.event.get():
                 if ev.type == pygame.MOUSEBUTTONDOWN \

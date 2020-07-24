@@ -3,6 +3,10 @@
 
 Work during meetings
 
+Buttons
+	either bombs or not bombs
+	each button randomized upon creation
+
 classes for bombs and buttons
 
 list of buttons
